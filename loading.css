@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Loading Screen */
+/* #loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #f5f5f5;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#progress-container {
+    width: 80%;
+    max-width: 400px;
+    height: 10px;
+    background: #ecf0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+/* #progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, purple, white);
+    transition: width 0.5s;
+} */
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, purple, white);
+    transition: width 0.5s ease-in-out;
+}
+
+
+#loading-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+}
+
+/* Header */
+/* header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: whitesmoke;
+    color: white;
+    margin: 0;
+} */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Makes sure elements are evenly spaced */
+    padding: 10px 20px;
+    background-color: whitesmoke;
+}
+
+
+/* Logo Section */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: contain; /* Ensures the logo is fully visible */
+    background: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.company-name {
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: 'Dancing Script', cursive;
+    color: #FFD700;
+}
+
+/* Location Bar */
+.location-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.location-bar input {
+    padding: 15px;
+    border: 0px solid #ccc;
+    border-radius: 10px;
+    width: 250px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 250px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 0px solid #ccc;
+    font-size: 16px;
+    text-align: left;
+}
+
+.search-container input {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+}
+
+.search-btn {
+    
+    background: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.location-btn {
+    background: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+/* Cart & Profile Buttons */
+.header-buttons button {
+    background: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.header-buttons button:hover {
+    background: #6A6AB8;
+}
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f8f9fa;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Section Styling */
+.services {
+
+    padding: 50px 20px;
+}
+
+.services h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #222;
+}
+
+.services p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Service Container (Grid) */
+/* .service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: auto;
+} */
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts based on screen size */
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+
+}
+
+
+/* Service Cards */
+.service-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.service-card i {
+    font-size: 2rem;
+    color: #6a6ab8;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon-placeholder {
+    width: 50px;
+    height: 50px;
+    background: white /* Placeholder color */
+     
+}
+ 
+.service-text {
+    text-align: left;
+}
+
+#services-image {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border-radius: 50px;
+    height:475px;
+}
+
+#services-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
