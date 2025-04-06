@@ -62,6 +62,36 @@ document.addEventListener("DOMContentLoaded", function () {
     typeEffect();
 });
 
+const carousel = document.querySelector('.carousel');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+carousel.addEventListener('mousedown', (e) => {
+  isDown = true;
+  
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener('mouseleave', () => {
+  isDown = false;
+  carousel.classList.remove('active');
+});
+
+carousel.addEventListener('mouseup', () => {
+  isDown = false;
+  carousel.classList.remove('active');
+});
+
+carousel.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2; // Speed multiplier
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
 
 
 
