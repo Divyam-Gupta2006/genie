@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
+    <link rel="icon" href="Untitled design.png">
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -17,6 +18,7 @@
 
         <div id="signInDiv" class="form-container">
             <h3>Sign In</h3>
+            <input type="name" id="loginName" placeholder="Enter your name">
             <input type="email" id="loginEmail" placeholder="Enter your email">
             <input type="password" id="loginPassword" placeholder="Enter your password">
             <button onclick="loginUser()">Login</button>
@@ -24,12 +26,13 @@
 
         <div id="signUpDiv" class="form-container">
             <h3>Sign Up</h3>
+            <input type="name" id="registerName" placeholder="Enter your name">
             <input type="email" id="registerEmail" placeholder="Enter your email">
             <input type="password" id="registerPassword" placeholder="Enter your password">
             <button onclick="registerUser()">Register</button>
         </div>
     </div>
-
     <script type="module" src="login.js"></script>
 </body>
 </html>
+
