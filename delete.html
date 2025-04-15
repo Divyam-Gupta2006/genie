@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Delete Account</title>
+    <link rel="icon" href="Untitled design.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="delete.css">
+</head>
+
+<body>
+    <p id="error-message"></p>
+    <div class="container">
+        <div id="messageBox"></div>
+        <h2>Even Genies can't bring back deleted accounts… Still want to move out?</h2>
+        <div id="passwordBox" style="display: none; margin-top: 20px;">
+            <p>Confirm your password to delete your account:</p>
+            <input type="password" id="passwordInput" placeholder="Enter your password" />
+            <button type="button" id="togglePassword" style="background: none; border: none; cursor: pointer;">
+                <i id="eyeIcon" class="fas fa-eye"></i>
+            </button>
+            <br>
+            <button id="confirmDelete">Confirm Delete</button>
+        </div>
+        
+        <div id="DeleteDiv" class="form-container">
+            <!-- <h3>Confirm</h3> -->
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+    <script type="module" src="delete.js"></script>
+</body>
+
+</html>
+
