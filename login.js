@@ -33,17 +33,19 @@ function showMessage(text, type) {
 window.registerUser = function () {
     const email = document.getElementById("registerEmail").value;
     const password = document.getElementById("registerPassword").value;
+    const name= document.getElementById("registerName").value;
 
-    if (!email || !password) {
-        showMessage("Please enter email and password.", "error");
+    if (!email || !password || !name) {
+        showMessage("Please enter all credentials.", "error");
         return;
     }
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password,name)
         .then((userCredential) => {
             const user = userCredential.user;
             document.getElementById("loginEmail").value="";
             document.getElementById("loginPassword").value="";
+            document.getElementById("loginName").value="";
 
             sendEmailVerification(user)
                 .then(() => {
@@ -79,22 +81,24 @@ window.registerUser = function () {
 window.loginUser = function () {
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
+    const name = document.getElementById("loginName").value;
 
-    if (!email || !password) {
-        showMessage("Please enter email and password.", "error");
+    if (!email || !password || !name) {
+        showMessage("Please enter all credentials.", "error");
         return;
     }
 
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password, name)
         .then((userCredential) => {
             const user = userCredential.user;
             document.getElementById("loginEmail").value="";
             document.getElementById("loginPassword").value="";
+            document.getElementById("loginName").value="";
 
             if (user.emailVerified) {
                 showMessage("Login successful!", "success");
                 setTimeout(() => {
-                    window.location.href = "dashboard.html"; // Replace with your page
+                    window.location.href = "loading.html";
                 }, 2000);
             } else {
                 showMessage("Please verify your email before logging in.", "error");
@@ -105,3 +109,5 @@ window.loginUser = function () {
             showMessage(error.message);
         });
 };
+
+
