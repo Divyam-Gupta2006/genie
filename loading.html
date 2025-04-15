@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Page</title>
+    <title>Genie</title>
+    <link rel="icon" href="Untitled design.png">
     <link rel="stylesheet" href="loading.css">
-    <script src="loading.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <div id="loading-screen">
         <img id="loading-image" src="Untitled design.png" alt="Loading...">
@@ -19,8 +20,8 @@
         <p>Loading...</p>
     </div>
 
-    <div id="content" style="display: none;">
-        
+    <div id="content">
+
         <header>
             <div class="logo-container">
                 <img src="Untitled design.png" alt="Company Logo" class="logo">
@@ -29,39 +30,62 @@
 
             <div class="location-bar">
                 <!-- <button class="location-btn">📍 </button> -->
-                 <img src="location-pin-svgrepo-com.svg" alt="Location" class="location-btn">
+                <img src="location-pin-svgrepo-com.svg" alt="Location" class="location-btn">
                 <input type="text" placeholder="Enter your location" class="location-bar" id="location-input">
-                
             </div>
 
             <div class="search-container">
                 <img src="magnifying-glass-search-svgrepo-com.svg" alt="Search" class="search-btn">
                 <!-- <button class="search-btn">🔍</button> -->
-                <input type="text" class="search-bar" id="search-input" placeholder=" Search for services" >
-
-
-                
+                <input type="text" class="search-bar" id="search-input" placeholder=" Search for services">
             </div>
 
             <div class="header-buttons">
-                <a href="cart.html" class="login-btn"><img src="cart-shopping-svgrepo-com.svg" alt="My Cart" id="cart-btn"></a>
-                <a href="login.html" class="login-btn"><img src="profile-1341-svgrepo-com.svg" alt="My Profile" id="profile-btn"></a>
-                
+                <a href="cart.html" class="login-btn"><img src="cart-shopping-svgrepo-com.svg" alt="My Cart"
+                        id="cart-btn"></a>
+                <a href="login.html" class="login-btn"><img src="profile-1341-svgrepo-com.svg" alt="My Profile"
+                        id="profile-btn"></a>
                 <!-- <button class="cart-btn">🛒</button>
                 <button class="profile-btn">👤</button> -->
             </div>
         </header>
-
-       
     </div>
 
     <section class="services">
+        <div id="profile-sidebar" class="translate-x-full">
+            <div class="p-4">
+                <div class="flex justify-between items-center">
+                    <h2>Profile</h2>
+                    <button id="close-sidebar">&times;</button>
+                </div>
+                <div class="user-info">
+                    <div class="avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <p class="username">User Name</p>
+                    <p class="email">user@example.com</p>
+                </div>
+                <nav class="sidebar-menu">
+                    <button id="logout-button" class="menu-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Log Out
+                    </button>
+                    <a href="delete.html" class="menu-item">
+                        <i class="fas fa-trash"></i>
+                        Delete account
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="sidebar-overlay" class="hidden"></div>
+
         <h2>Our Services</h2>
         <p>Find professionals for all your home service needs</p>
 
         <div class="service-container">
-            <div class="service-card">
-                <i class="fas fa-home"></i> 
+            <div class="service-card" id="Home-Care">
                 <div class="icon-placeholder">
                     <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -69,11 +93,9 @@
                     <h3>Home Care</h3>
                     <p>Professional cleaning and household assistance</p>
                 </div>
-                
             </div>
 
-            <div class="service-card">
-                <i class="fas fa-paw"></i>
+            <div class="service-card" id="Pet-Care">
                 <div class="icon-placeholder">
                     <img src="paw-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -81,11 +103,10 @@
                     <h3>Pet Care</h3>
                     <p>Grooming, sitting, and walking services for your pets</p>
                 </div>
-                
+
             </div>
 
-            <div class="service-card">
-                <i class="fas fa-cut"></i>
+            <div class="service-card" id="Salon-at-Home">
                 <div class="icon-placeholder">
                     <img src="hair-salon-scissor-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -93,10 +114,9 @@
                     <h3>Salon at Home</h3>
                     <p>Beauty and grooming services in the comfort of your home</p>
                 </div>
-            </div> 
+            </div>
 
-            <div class="service-card">
-                <i class="fas fa-birthday-cake"></i>
+            <div class="service-card" id="Party-Planners">
                 <div class="icon-placeholder">
                     <img src="party-dj-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -104,10 +124,9 @@
                     <h3>Party Planners</h3>
                     <p>Complete planning and organization for your special events</p>
                 </div>
-            </div> 
+            </div>
 
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
+            <div class="service-card" id="House-Repairs">
                 <div class="icon-placeholder">
                     <img src="wrench-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -115,11 +134,10 @@
                     <h3>House Repairs</h3>
                     <p>Electrical, plumbing, and general maintenance services</p>
                 </div>
-                
+
             </div>
 
-            <div class="service-card">
-                <i class="fas fa-calendar-alt"></i>
+            <div class="service-card" id="Complete-Event-Care">
                 <div class="icon-placeholder">
                     <img src="calender-svgrepo-com.svg" alt="House Cleaning" class="icon-placeholder">
                 </div>
@@ -127,28 +145,28 @@
                     <h3>Complete Event Care</h3>
                     <p>End-to-end services for events and celebrations</p>
                 </div>
-       
+
             </div>
         </div>
     </section>
 
-    <div >
-        <img src="full-length-shot-pretty-healthy-young-lady-walking-morning-park-with-dog_171337-18869-COLLAGE.jpg" alt="our services" id="services-image">
+    <div>
+        <img src="full-length-shot-pretty-healthy-young-lady-walking-morning-park-with-dog_171337-18869-COLLAGE.jpg"
+            alt="our services" id="services-image">
     </div>
-    
+
     <!-- Home Care Section  -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -156,12 +174,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -169,12 +187,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -182,12 +200,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -195,12 +213,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -208,12 +226,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -221,12 +239,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -234,12 +252,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -247,12 +265,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -260,12 +278,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -273,12 +291,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -291,17 +309,17 @@
 
     <!-- pet care -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -309,12 +327,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -322,12 +340,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -335,12 +353,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -348,12 +366,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -361,12 +379,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -374,12 +392,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -387,12 +405,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -400,12 +418,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -413,12 +431,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -426,12 +444,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -441,20 +459,20 @@
             </div>
         </div>
     </div>
-    
+
     <!-- salon at home  -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -462,12 +480,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -475,12 +493,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -488,12 +506,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -501,12 +519,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -514,12 +532,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -527,12 +545,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -540,12 +558,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -553,12 +571,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -566,12 +584,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -579,12 +597,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -594,20 +612,20 @@
             </div>
         </div>
     </div>
-    
+
     <!-- party planners  -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -615,12 +633,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -628,12 +646,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -641,12 +659,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -654,12 +672,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -667,12 +685,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -680,12 +698,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -693,12 +711,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -706,12 +724,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -719,12 +737,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -732,12 +750,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -747,20 +765,20 @@
             </div>
         </div>
     </div>
-    
+
     <!-- house repairs  -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -768,12 +786,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -781,12 +799,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -794,12 +812,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -807,12 +825,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -820,12 +838,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -833,12 +851,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -846,12 +864,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -859,12 +877,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -872,12 +890,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -885,12 +903,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -900,20 +918,20 @@
             </div>
         </div>
     </div>
-    
+
     <!-- complete event care  -->
     <div class="parent-services-container">
-        <div class="parent-services-container-image-text">        
+        <div class="parent-services-container-image-text">
             <img src="home-11-svgrepo-com.svg" alt="House Cleaning" class="parent-services-container-icon">
             <h2>Home Care</h2>
         </div>
         <div class="services-container">
-        
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -921,12 +939,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -934,12 +952,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -947,12 +965,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -960,12 +978,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -973,12 +991,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -986,12 +1004,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -999,12 +1017,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -1012,12 +1030,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -1025,12 +1043,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -1038,12 +1056,12 @@
                     </button>
                 </div>
             </div>
-    
-            <div class="services-container-card">
+
+            <div class="services-container-card" onclick="redirectToPage(event)">
                 <img src="630-professional-cleaner.png" alt="House Cleaning" class="services-container-image">
-                
+
                 <h3 class="service-title">House Cleaning</h3>
-                
+
                 <div class="service-info">
                     <p class="price-tag">$99</p>
                     <button class="services-container-add-to-cart-btn">
@@ -1053,12 +1071,8 @@
             </div>
         </div>
     </div>
-    
-    
-    
-   
-
-
-    <script src="loading.js"></script>
+    <script type="module" src="loading.js"></script>
 </body>
+
 </html>
+
