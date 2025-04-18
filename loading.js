@@ -1,4 +1,5 @@
 import { auth } from "./firebase-config.js";
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 document.addEventListener("readystatechange", function () {
     let progressBar = document.getElementById("progress-bar");
@@ -19,8 +20,27 @@ document.addEventListener("readystatechange", function () {
     }
 });
 
+if (!sessionStorage.getItem("logoutOnce")) {
+    sessionStorage.setItem("logoutOnce", "true");
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log("User is signed in. Logging out now...");
+            signOut(auth).then(() => {
+                console.log("User logged out.");
+                window.location.href = "login.html";
+            }).catch((error) => {
+                console.error("Sign out error:", error);
+            });
+        } else {
+            console.log("User is already logged out.");
+        }
+    });
+} else {
+    console.log("Logout already performed this session.");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize profile sidebar
     initializeProfileSidebar();
 
     const cartButton = document.getElementById('cart-btn');
@@ -28,18 +48,15 @@ document.addEventListener("DOMContentLoaded", function () {
         cartButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Check if user is logged in
             if (auth.currentUser) {
-                // User is logged in, redirect to cart
                 window.location.href = 'cart.html';
             } else {
-                // User is not logged in, redirect to login page
                 console.log("No user signed in. Redirecting to login.html");
                 window.location.href = 'login.html';
             }
         });
     }
-    // Search input typewriter effect
+
     const searchInput = document.getElementById("search-input");
     const services = [
         "House Help",
@@ -63,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (charIndex === currentService.length) {
                 isDeleting = true;
-                setTimeout(typeEffect, 1000); // Pause before deleting
+                setTimeout(typeEffect, 1000);
                 return;
             }
         } else {
@@ -83,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
         typeEffect();
     }
 
-    // Carousel functionality
     const carousel = document.querySelector('.carousel');
     if (carousel) {
         let isDown = false;
@@ -115,13 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Service card click handlers
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', redirectToPage);
     });
 });
 
-// Redirect function
 function redirectToPage(event) {
     console.log("redirectToPage function called");
     const userAuth = auth;
@@ -157,13 +171,10 @@ function initializeProfileSidebar() {
         return;
     }
     
-    // Listen for authentication state changes
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // User is signed in
             console.log('User is signed in:', user.email);
             
-            // Update user info in sidebar
             if (userInfo) {
                 const usernameElement = userInfo.querySelector('.username');
                 const emailElement = userInfo.querySelector('.email');
@@ -175,13 +186,11 @@ function initializeProfileSidebar() {
                 }
             }
             
-            // Add click handler for profile button
             profileButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 openSidebar();
             });
             
-            // Add contact us button
             const contactButton = document.createElement('a');
             contactButton.className = 'menu-item contact-button';
             contactButton.innerHTML = `
@@ -195,14 +204,12 @@ function initializeProfileSidebar() {
                 sidebarMenu.insertBefore(contactButton, logoutButton);
             }
             
-            // Add contact us functionality
             contactButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 handleContactUs();
             });
             
         } else {
-            // User is not signed in
             console.log('No user signed in');
             profileButton.addEventListener('click', () => {
                 window.location.href = 'login.html';
@@ -239,4 +246,5 @@ function initializeProfileSidebar() {
         window.location="contact.html";
     }
 }
+
 
