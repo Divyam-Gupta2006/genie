@@ -5,7 +5,16 @@ import {
     signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Function to show/hide forms
+import { db } from './firebase-config.js';
+import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+async function logUserActivity(user) {
+    await setDoc(doc(db, "user_visits", user.uid), {
+        email: user.email,
+        lastVisit: serverTimestamp()
+    });
+}
+
 window.showSignIn = function () {
     document.getElementById("signInDiv").style.display = "block";
     document.getElementById("signUpDiv").style.display = "none";
@@ -16,20 +25,17 @@ window.showSignUp = function () {
     document.getElementById("signUpDiv").style.display = "block";
 };
 
-// Function to show messages
 function showMessage(text, type) {
     const messageBox = document.getElementById("messageBox");
     messageBox.textContent = text;
     messageBox.className = type;
     messageBox.style.display = "block";
 
-    // Hide message after 3 seconds
     setTimeout(() => {
         messageBox.style.display = "none";
     }, 3000);
 }
 
-// Register User
 window.registerUser = function () {
     const email = document.getElementById("registerEmail").value;
     const password = document.getElementById("registerPassword").value;
@@ -50,15 +56,14 @@ window.registerUser = function () {
             sendEmailVerification(user)
                 .then(() => {
                     showMessage("Verification email sent! Check your inbox.", "success");
+                    logUserActivity(user);
 
-                    // Check every 3 seconds if the user has verified their email
                     const checkVerification = setInterval(() => {
                         user.reload().then(() => {
                             if (user.emailVerified) {
                                 clearInterval(checkVerification); // Stop checking
                                 showMessage("Email verified! Redirecting to Sign In...", "success");
 
-                                // Switch to Sign-In form after verification
                                 setTimeout(() => {
                                     showSignIn();
                                 }, 2000);
@@ -77,7 +82,6 @@ window.registerUser = function () {
         });
 };
 
-// Login User
 window.loginUser = function () {
     const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
@@ -97,6 +101,7 @@ window.loginUser = function () {
 
             if (user.emailVerified) {
                 showMessage("Login successful!", "success");
+                logUserActivity(user);
                 setTimeout(() => {
                     window.location.href = "loading.html";
                 }, 2000);
