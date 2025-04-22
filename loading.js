@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput = document.getElementById("search-input");
     const services = [
-        "House Help",
+        "Home Care",
         "Pet Care",
         "Salon at Home",
         "Party Planners",
@@ -144,12 +144,12 @@ function redirectToPage(event) {
         const elementId = event.currentTarget.id;
         console.log("Element ID:", elementId);
         switch (elementId) {
-            case 'Home-Care': window.location.href = 'cart.html'; break;
-            case 'Pet-Care': window.location.href = 'cart.html'; break;
-            case 'Salon-at-Home': window.location.href = 'cart.html'; break;
-            case 'Party-Planners': window.location.href = 'cart.html'; break;
-            case 'House-Repairs': window.location.href = 'cart.html'; break;
-            case 'Complete-Event-Care': window.location.href = 'cart.html'; break;
+            case 'Home-Care': window.location.href = 'homecare.html'; break;
+            case 'Pet-Care': window.location.href = 'petcare.html'; break;
+            case 'Salon-at-Home': window.location.href = 'salonathome.html'; break;
+            case 'Party-Planners': window.location.href = 'partyplanners.html'; break;
+            case 'House-Repairs': window.location.href = 'houserepairs.html'; break;
+            case 'Complete-Event-Care': window.location.href = 'completeeventcare.html'; break;
             default: console.log('No redirect page specified');
         }
     } else {
